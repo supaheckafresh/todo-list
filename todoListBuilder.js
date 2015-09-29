@@ -2,23 +2,22 @@ var todoLiHTML = '<input type="checkbox"><li class="todo-item" style="display: i
 var todoList = [];
 
 function todo() {
-    var todoItem = prompt('What would you like to do?');
+    var userTodo = prompt('What would you like to do?');
 
-    if (typeof todoItem === 'string' && !todo.isBlank(todoItem)) {
-        if (todoList.indexOf(todoItem) === -1) {
-            todoList.push(todoItem);
-            alert('Added ' + todoItem + ' to your list!');
+    if (typeof userTodo === 'string' && userTodo != '') {
+        console.log(userTodo);
+        if (todo.isNotInList(userTodo)) {
+            todoList.push(userTodo.trim());
+            alert('Added ' + userTodo.toUpperCase() + ' to your list!');
         } else {
             alert('That todo item is already in your list');
-            todo();
         }
     } else {
         alert('I\'m sorry, I didn\'t recognize your entry. Please try again');
-        todo();
     }
 
-    if (!todo.isBlank(todoItem)) {
-        todo.displayNewItem(todoItem);
+    if (!todo.isBlank(userTodo) && userTodo != null) {
+        todo.displayNewItem(userTodo);
         console.log(todoList);
     }
 }
@@ -29,7 +28,13 @@ todo.displayNewItem = function(todoItem) {
 };
 
 todo.isBlank = function(userEntry) {
-    return userEntry.trim() === '';
+    if (userEntry != null) {
+        return userEntry.trim() === '';
+    }
+};
+
+todo.isNotInList = function(userEntry) {
+    return todoList.indexOf(userEntry) === -1
 };
 
 $(document).ready(function() {
