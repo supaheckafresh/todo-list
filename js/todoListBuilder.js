@@ -1,4 +1,4 @@
-var todoLiHTML = '<input type="checkbox"><li class="todo-item" style="display: inline">%data%</li><br/>';
+var todoLiHTML = '<input type="checkbox"><li class="todo-item">%data%</li><br/>';
 var todoList = [];
 
 function todo() {
