@@ -1,6 +1,8 @@
 var todoLiHTML = '<input type="checkbox"><li class="todo-item">%data%</li><br/>';
 var todoList = [];
 
+//TODO remove debug console.logs
+
 function todo() {
     var userTodo = prompt('What would you like to do?');
 
@@ -34,7 +36,7 @@ todo.isBlank = function(userEntry) {
 };
 
 todo.isNotInList = function(userEntry) {
-    return todoList.indexOf(userEntry) === -1
+    return todoList.indexOf(userEntry) === -1;
 };
 
 $(document).ready(function() {
